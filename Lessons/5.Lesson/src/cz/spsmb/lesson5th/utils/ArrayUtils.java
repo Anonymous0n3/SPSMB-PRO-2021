@@ -13,7 +13,7 @@ public class ArrayUtils {
     public static int[] generate(int size, int min, int max) {
         int[] array = new int[size];
         for (int i = 0; i < array.length; i++) {
-            array[i] = cz.spsmb.lesson5th.utils.MathUtils.randomNumber(min, max);
+            //array[i] = cz.spsmb.lesson5th.utils.MathUtils.randomNumber(min, max);
         }
         return array;
     }
@@ -82,5 +82,66 @@ public class ArrayUtils {
             array[i] = min;
         }
         return array;
+    }
+
+    public static int[][] generate(int width, int height, int min, int max){
+        return null;
+    }
+
+    public static void arrayInt(int width, int height, String type){
+        if(type == "object"){
+            Object[][] objectArray = new Object[width][height];
+        }
+        else if (type == "int"){
+            int[][] objectArray = new int[width][height];
+        }
+        else if (type == "char"){
+            char[][] objectArray = new char[width][height];
+        }
+        else{
+            System.out.println("Napsal jsi to špatně");
+        }
+    }
+
+    public static void matice(int size){
+        int[][] A = new int[size][size];
+        int i =0;
+        for (int positionX[]:A) {
+            int i1 = 0;
+            for (int positionY:positionX) {
+                if (i1 == i){
+                    A[i][i1] = 1;
+                }
+                else{
+                    A[i][i1] = 0;
+                }
+                i1++;
+            }
+        i++;
+        }
+    }
+
+    public static int[][] maticePlus (int[][] maticeA, int[][] maticeB, int height, int width){
+        if (maticeA.length == maticeB.length){
+            for (int výška[]:maticeA) {
+                for (int vyska[]:maticeB) {
+                    if (výška.length == vyska.length){
+                        int i =0;
+                        int[][] maticeC = new int[width][height];
+                        for (int positionX[]:maticeA) {
+                            int i1 =0;
+                            for (int positionY:positionX) {
+                                maticeC[i][i1] = maticeB[i][i1] + maticeA[i][i1];
+                                i1++;
+                            }
+                            i++;
+                        }
+                        return maticeC;
+                    }
+                    return null;
+                }
+            }
+    }
+        return null;
     }
 }

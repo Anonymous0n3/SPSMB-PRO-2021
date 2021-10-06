@@ -1,13 +1,15 @@
 package cz.spsmb.lesson5th.utils;
 
+import java.util.ArrayList;
+
 public class ArrayUtils {
 
     /**
      * Metoda vygeneruje pole s random hodnotou.
      *
      * @param size - Velikost pole
-     * @param min - Minimální hodnota
-     * @param max - Maximální hodnota
+     * @param min  - Minimální hodnota
+     * @param max  - Maximální hodnota
      * @return - Pole s náhodnými hodnoty
      */
     public static int[] generate(int size, int min, int max) {
@@ -41,7 +43,6 @@ public class ArrayUtils {
      * Součet celého pole
      *
      * @param array
-     *
      * @return - součet celého pole
      */
     public static int sum(int[] array) {
@@ -56,7 +57,6 @@ public class ArrayUtils {
      * Průměrná hodnota pole
      *
      * @param array
-     *
      * @return
      */
     public static double avg(int[] array) {
@@ -70,9 +70,8 @@ public class ArrayUtils {
      * Metoda vygeneruje seřazené pole s random hodnotou.
      *
      * @param size - Velikost pole
-     * @param min - Minimální hodnota
-     * @param max - Maximální hodnota
-     *
+     * @param min  - Minimální hodnota
+     * @param max  - Maximální hodnota
      * @return - Pole s random hodnotou
      */
     public static int[] generateSortedArray(int size, int min, int max) {
@@ -84,64 +83,53 @@ public class ArrayUtils {
         return array;
     }
 
-    public static int[][] generate(int width, int height, int min, int max){
+    public static int[][] generate(int width, int height, int min, int max) {
         return null;
     }
 
-    public static void arrayInt(int width, int height, String type){
-        if(type == "object"){
+    public static void arrayInt(int width, int height, String type) {
+        if (type == "object") {
             Object[][] objectArray = new Object[width][height];
-        }
-        else if (type == "int"){
-            int[][] objectArray = new int[width][height];
-        }
-        else if (type == "char"){
-            char[][] objectArray = new char[width][height];
-        }
-        else{
+        } else if (type == "int") {
+            int[][] intArray = new int[width][height];
+        } else if (type == "char") {
+            char[][] charArray = new char[width][height];
+        } else {
             System.out.println("Napsal jsi to špatně");
         }
     }
 
-    public static void matice(int size){
-        int[][] A = new int[size][size];
-        int i =0;
-        for (int positionX[]:A) {
-            int i1 = 0;
-            for (int positionY:positionX) {
-                if (i1 == i){
-                    A[i][i1] = 1;
-                }
-                else{
-                    A[i][i1] = 0;
-                }
-                i1++;
-            }
-        i++;
+    public static int[] fibonacci (int size){
+        int[] fibonacciSequence = new int[size];
+        fibonacciSequence[0] = 1;
+        fibonacciSequence[1] = 1;
+        for (int i = 2; i <size; i++){
+            fibonacciSequence[i] = fibonacciSequence[i-2] + fibonacciSequence[i-1];
         }
+        return fibonacciSequence;
     }
 
-    public static int[][] maticePlus (int[][] maticeA, int[][] maticeB, int height, int width){
-        if (maticeA.length == maticeB.length){
-            for (int výška[]:maticeA) {
-                for (int vyska[]:maticeB) {
-                    if (výška.length == vyska.length){
-                        int i =0;
-                        int[][] maticeC = new int[width][height];
-                        for (int positionX[]:maticeA) {
-                            int i1 =0;
-                            for (int positionY:positionX) {
-                                maticeC[i][i1] = maticeB[i][i1] + maticeA[i][i1];
-                                i1++;
-                            }
-                            i++;
-                        }
-                        return maticeC;
-                    }
-                    return null;
-                }
+    public static void czFlag (int height, int width){
+        int[][] flag = new int[height][width];
+        for (int i = 0;i<height/2; i++){
+            for (int i1 = 0; i1<= i; i1++){
+                flag[i][i1] = 2;
             }
-    }
-        return null;
+
+        }
+
+        for (int i = height/2; i<height; i++){
+            for (int i1 = 0; i1<width;i1++){
+                flag[i][i1] = 1;
+            }
+        }
+            int downHalf = height/2 + 3;
+        for (int i = height/2;i<height; i++){
+            for (int i1 = 0; i1<= downHalf; i1++){
+                flag[i][i1] = 2;
+                downHalf--;
+            }
+
+        }
     }
 }

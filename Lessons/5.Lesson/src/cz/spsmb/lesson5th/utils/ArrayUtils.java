@@ -123,13 +123,12 @@ public class ArrayUtils {
                 flag[i][i1] = 1;
             }
         }
-            int downHalf = height/2 + 3;
+            int downHalf = height/2-1;
         for (int i = height/2;i<height; i++){
-            for (int i1 = 0; i1<= downHalf; i1++){
-                flag[i][i1] = 2;
-                downHalf--;
+            for (int i1 = 0; i1<=downHalf; i1++){
+                flag[i][i1] = 2;;
             }
-
+            downHalf--;
         }
     }
 }
